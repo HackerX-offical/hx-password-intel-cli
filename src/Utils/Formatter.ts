@@ -1,10 +1,10 @@
 export class Formatter {
   public static formatDuration(seconds: number): string {
-    if (seconds < 1) return "Instantly";
-    if (seconds === Infinity) return "Centuries";
+    if (seconds < 1) return 'Instantly';
+    if (seconds === Infinity) return 'Centuries';
 
     const years = seconds / (3600 * 24 * 365);
-    if (years >= 100) return "Centuries";
+    if (years >= 100) return 'Centuries';
     if (years >= 1) return `${years.toFixed(1)} years`;
 
     const days = seconds / (3600 * 24);

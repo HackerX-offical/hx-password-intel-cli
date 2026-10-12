@@ -6,7 +6,9 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "build": "tsc",
-    "dev": "ts-node src/index.ts"
+    "dev": "ts-node src/index.ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "keywords": [
     "security",
@@ -16,13 +18,14 @@
     "typescript"
   ],
   "author": "",
-  "license": "ISC",
+  "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
     "chalk": "^4.1.2",
     "commander": "^11.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
+    "prettier": "^3.6.2",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.0"
   }

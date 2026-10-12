@@ -1,4 +1,4 @@
-import { AnalysisResult, CharsetInfo, CrackTimeEstimates } from "../types";
+import { AnalysisResult, CharsetInfo, CrackTimeEstimates } from '../types';
 
 export class Analyzer {
   private static readonly POOL_LOWERCASE = 26;
@@ -8,10 +8,7 @@ export class Analyzer {
 
   public static analyze(password: string): AnalysisResult {
     const charset = this.getCharacterSet(password);
-    const entropyBits = this.calculateEntropy(
-      password.length,
-      charset.poolSize
-    );
+    const entropyBits = this.calculateEntropy(password.length, charset.poolSize);
     const crackTimes = this.estimateCrackTime(entropyBits);
     const score = this.calculateScore(entropyBits);
 
