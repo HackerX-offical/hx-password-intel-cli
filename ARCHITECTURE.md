@@ -1,19 +1,39 @@
-# hx-password-intel-cli architecture
+# hx-password-intel-cli — architecture
 
+## Purpose
+
+Pure analysis CLI — no network. Non-goals: attacking live accounts.
+
+## High-level flow
+
+```mermaid
+flowchart LR
+  CLI[CLI] --> Core[Core engine]
+  Core --> Modules[Domain modules]
+  Modules --> Reporters[Reporters]
 ```
-src/
-  Core/       # Analyzer (entropy, crack-time estimates), Feedback
-  Utils/      # Output formatting
-  types/      # Shared result types
-  index.ts    # Commander CLI entry
-```
 
-## Analysis pipeline
+## Module map
 
-1. `Analyzer.analyze` — charset pool, Shannon-style entropy, score band, crack-time scenarios.
-2. `Feedback.getFeedback` — warnings (length, patterns) and improvement suggestions.
-3. `Formatter` — human-readable durations for console output.
+| Path             | Responsibility            |
+| ---------------- | ------------------------- |
+| `src/index.ts`   | CLI entry                 |
+| `src/Core/`      | Entropy, charset, scoring |
+| `src/reporters/` | JSON output               |
 
-## Ethics
+## Extension
 
-Educational estimates only. No live breach data or external API calls.
+1. Add a module under the appropriate `src/` folder.
+2. Register it in the orchestrator (if applicable).
+3. Add unit tests with mocks — no live network in unit tests.
+4. Run `npm test` and `npm run format:check`.
+
+## Testing strategy
+
+- **Unit**: mocked I/O, pure parsers, reporters.
+- **Integration** (if present): live targets documented in README; optional in CI or
+  scheduled.
+
+## Ethics & scope
+
+Authorized engagements only. See [SECURITY.md](./SECURITY.md).

@@ -1,58 +1,51 @@
 # hx-password-intel-cli
 
-An educational CLI tool for analyzing password strength using entropy mathematics.
+Educational CLI for password entropy, charset analysis, and crack-time estimates.
 
-> [!WARNING] > **ETHICAL DISCLAIMER** This tool is strictly for **educational and
-> defensive purposes**. It is designed to help users understand password complexity and
-> entropy.
->
-> - **DO NOT** use this tool to analyze passwords that do not belong to you or for which
->   you do not have explicit permission.
-> - **DO NOT** use the passwords analyzed here in production systems if they have been
->   exposed in plain text logs or screen history (though this tool runs locally, safety
->   first).
-> - This tool creates **estimates** based on mathematical models. Real-world cracking
->   performance varies wildly based on hardware and attacker resources.
+## Why this exists
+
+Defenders and students need local, math-first password feedback without sending secrets
+to the cloud.
 
 ## Features
 
-- **Entropy Calculation**: Calculates the information entropy in bits.
-- **Crack Time Estimation**: Estimates time to crack under various attacker scenarios
-  (Online, Offline Fast, Offline Slow).
-- **Character Set Analysis**: Identifies usage of lowercase, uppercase, numbers, and
-  symbols.
-- **Improvement Suggestions**: Provides actionable feedback to strengthen passwords.
+- Entropy and crack-time engines with Jest coverage
+- JSON reporter for scripting
+- Interactive and one-shot CLI modes
 
-## Installation
+## Install
 
 ```bash
+git clone https://github.com/HackerX-offical/hx-password-intel-cli.git
+cd hx-password-intel-cli
 npm install
 ```
 
-## Usage
-
-**Interactive Mode:**
-
-```bash
-npm start
-```
-
-**One-off Analysis:**
+## Quick start
 
 ```bash
 npm start -- "MySecretPassword123!"
 ```
 
-## How it works
+## Output
 
-The tool uses the formula $E = L \times \log_2(N)$ where:
+Stdout tables; optional JSON via reporter flags.
 
-- $L$ is the password length.
-- $N$ is the size of the character pool (e.g., 26 for just lowercase, 62 for
-  alphanumeric).
+## Develop
 
-It then estimates crack time by assuming an attacker can guess $2^{E-1}$ passwords on
-average.
+```bash
+npm test
+npm run format:check
+```
+
+## Architecture
+
+See [ARCHITECTURE.md](./ARCHITECTURE.md) for module layout and extension points.
+
+## Ethics
+
+Use only on systems and content you are **authorized** to test. See
+[SECURITY.md](./SECURITY.md).
 
 ## License
 
