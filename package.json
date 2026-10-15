@@ -32,5 +32,13 @@
     "ts-jest": "^29.4.6",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HackerX-official/hx-password-intel-cli.git"
+  },
+  "homepage": "https://github.com/HackerX-official/hx-password-intel-cli#readme",
+  "bugs": {
+    "url": "https://github.com/HackerX-official/hx-password-intel-cli/issues"
   }
 }
