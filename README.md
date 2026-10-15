@@ -16,7 +16,7 @@ to the cloud.
 ## Install
 
 ```bash
-git clone https://github.com/HackerX-offical/hx-password-intel-cli.git
+git clone https://github.com/HackerX-official/hx-password-intel-cli.git
 cd hx-password-intel-cli
 npm install
 ```
